@@ -12,14 +12,47 @@ public class Animals {
         this.runningSpeed = runningSpeed;
         this.swimmingSpeed = swimmingSpeed;
         this.endurance = endurance;
-        run((int)(Math.random()*10));
-        swim((int)(Math.random()*10));
+
     }
 
-    public void run (int distance) {
+    public int run(int distance) {
 
-System.out.println("Животное " + name + "во время бега потратило 1 ед. выносливости");
+        if (endurance < distance) {
+            System.out.println("Животное " + name + " отбросит коньки, если не отдохнет");
+            return -1;
+        }
+
+        if (runningSpeed > 0) {
+            System.out.println(name + " пробежит " + distance + "метров за " + distance / runningSpeed + " секунд");
+            endurance = endurance - distance;
+            return distance / runningSpeed;
+
+
+        }
+        return -1;
     }
 
-    public void swim (int distance) {
-}}
+    public int swim(int distance) {
+
+        if (this instanceof Cat) {
+            System.out.println("Коты не умеют плавать!");
+        }
+        if (endurance < distance) {
+            System.out.println("Животное " + name + " отбросит коньки, если не отдохнет");
+            return -1;
+        }
+
+        if (runningSpeed > 0) {
+            System.out.println(name + " пробежит " + distance + "метров за " + distance / swimmingSpeed + " секунд");
+            endurance = endurance - distance;
+            return distance / swimmingSpeed;
+        }
+        return -1;
+    }
+
+
+    public void info() {
+        System.out.println("Животное по кличке " + name + "имеет скорость бега " + runningSpeed + " имеет выносливость " + endurance);
+        System.out.println(name + " может проплыть за " + swimmingSpeed + " м/с");
+    }
+}
