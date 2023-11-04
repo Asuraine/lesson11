@@ -43,9 +43,9 @@ public class Animals {
         }
 
         if (runningSpeed > 0) {
-            System.out.println(name + " пробежит " + distance + "метров за " + distance / runningSpeed + " секунд");
+            System.out.println(name + " пробежит " + distance + "метров за " + distance / swimmingSpeed + " секунд");
             endurance = endurance - distance;
-            return distance / runningSpeed;
+            return distance / swimmingSpeed;
         }
         return -1;
     }
