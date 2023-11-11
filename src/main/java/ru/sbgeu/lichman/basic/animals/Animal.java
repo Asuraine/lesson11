@@ -34,7 +34,21 @@ public abstract class Animal {
         return -1;
     }
 
-    public abstract int swim(int distance);
+    public int swim(int distance) {
+        int requiredEndurence = distance * swimmingCoefficient;
+        if (endurance < distance) {
+            System.out.println("Животное " + name + " отбросит коньки, если не отдохнет");
+            return -1;
+        }
+
+        if (swimmingSpeed > 0) {
+            int time = distance / swimmingSpeed;
+            System.out.println(name + " проплывет " + distance + " метров за " + distance / swimmingSpeed + " секунд");
+            endurance = endurance - distance;
+            return time;
+        }
+        return -1;
+    }
 
     public void info() {
         System.out.println("Животное по кличке " + name + " имеет скорость бега " + runningSpeed + " имеет выносливость " + endurance);
