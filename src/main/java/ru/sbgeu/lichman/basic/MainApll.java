@@ -18,7 +18,10 @@ public class MainApll {
         dog.info();
         horse.run(300);
         cat.run(200);
-        dog.run(150);
+        dog.swim(140);
+        dog.info();
+        horse.swim(200);
+        horse.info();
 
     }
 }
